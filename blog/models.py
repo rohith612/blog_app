@@ -3,11 +3,13 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 
 # Tag model for the each post
+
+
 class Tag(models.Model):
     caption = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.caption 
+        return self.caption
 
 
 # Author model for the each posts
@@ -33,7 +35,8 @@ class Post(models.Model):
     content = models.TextField(validators=[
         MinLengthValidator(10)
     ])
-    author = models.ForeignKey(Author, null=True, blank=True, on_delete=models.SET_NULL, related_name="posts")
+    author = models.ForeignKey(
+        Author, null=True, blank=True, on_delete=models.SET_NULL, related_name="posts")
     tags = models.ManyToManyField(Tag)
 
     def __str__(self):
