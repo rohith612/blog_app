@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'blog.apps.BlogConfig'
+    'blog.apps.BlogConfig',
+    'review.apps.ReviewConfig'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     # BASE_DIR + '/static'
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/files/'
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
